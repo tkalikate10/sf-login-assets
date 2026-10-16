@@ -1,83 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        // Forces the browser to render as a styled webpage even if served as plain text
+        if (document.contentType === "text/plain") {
+            document.open("text/html");
+            document.write(document.documentElement.outerHTML);
+            document.close();
+        }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salesforce Login Notice</title>
+    <title>Salesforce Migration Notice</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f3f3f3;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             margin: 0;
-            padding: 20px;
+            padding: 24px;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 90vh;
+            height: 92vh;
+            color: #ffffff;
         }
-        .notice-container {
-            background-color: #ffffff;
-            border-top: 6px solid #e0b400; /* Warning Amber Color */
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 24px;
+        .notice-box {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 32px;
             max-width: 420px;
             width: 100%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             box-sizing: border-box;
         }
-        .notice-header {
+        .alert-header {
             display: flex;
             align-items: center;
-            margin-bottom: 16px;
+            gap: 12px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 16px;
         }
-        .notice-icon {
-            font-size: 24px;
-            margin-right: 12px;
+        .alert-icon {
+            font-size: 28px;
         }
-        .notice-title {
-            color: #1a1a1a;
+        .alert-title {
             font-size: 18px;
             font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #38bdf8;
             margin: 0;
         }
-        .notice-body {
-            color: #4a4a4a;
+        .content p {
             font-size: 14px;
             line-height: 1.6;
-            margin-bottom: 20px;
+            color: #cbd5e1;
+            margin: 0 0 16px 0;
         }
-        .notice-footer {
-            border-top: 1px solid #e5e5e5;
-            padding-top: 14px;
-            font-size: 13px;
-        }
-        /* Crucial: target="_blank" links must open in a new tab */
-        .notice-link {
-            color: #0176d3;
-            text-decoration: none;
+        .highlight-box {
+            background: rgba(56, 189, 248, 0.1);
+            border-left: 4px solid #38bdf8;
+            padding: 14px;
+            border-radius: 4px;
             font-weight: 600;
-        }
-        .notice-link:hover {
-            text-decoration: underline;
+            color: #f0f9ff;
+            font-size: 13.5px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <div class="notice-container">
-        <div class="notice-header">
-            <span class="notice-icon">⚠️</span>
-            <h2 class="notice-title">SYSTEM NOTICE</h2>
+    <div class="notice-box">
+        <div class="alert-header">
+            <span class="alert-icon">⚡</span>
+            <h2 class="alert-title">IMPORTANT LOGIN UPDATE</h2>
         </div>
         
-        <div class="notice-body">
-            <p>Our Salesforce environment is scheduled for routine backend optimization and security patching.</p>
-            <p><b>Maintenance Window:</b> This Friday from 9:00 PM to 11:00 PM EST.</p>
-            <p>Please ensure all active records, logs, and updates are saved prior to the window start time to avoid data disruptions.</p>
-        </div>
-
-        <div class="notice-footer">
-            Questions? Contact the <a class="notice-link" href="https://ithelpdesk.com" target="_blank">IT Help Desk</a>.
+        <div class="content">
+            <p>Our Salesforce ecosystem has successfully completed enrollment into <b>Microsoft Entra SSO</b> as part of our dual Identity Provider configuration.</p>
+            
+            <p>Please note that our legacy <b>Okta</b> integration is scheduled to sunset in the near future.</p>
+            
+            <div class="highlight-box">
+                👉 Action Required: To ensure uninterrupted access and a seamless migration path, all business users are strongly encouraged to log in using the Microsoft Entra option.
+            </div>
         </div>
     </div>
 
